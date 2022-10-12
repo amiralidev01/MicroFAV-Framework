@@ -1,0 +1,15 @@
+{
+  "name": "amirali/micro-fav",
+  "autoload": {
+    "psr-4": {
+      "app\\": "App/"
+    }
+  },
+  "authors": [
+    {
+      "name": "AmirAli",
+      "email": "amiralidev20@gmail.com"
+    }
+  ],
+  "require": {}
+}
