@@ -4,10 +4,11 @@ use JetBrains\PhpStorm\NoReturn;
 
 class Request
 {
-    private array $params;
-    private mixed $method;
-    private mixed $agent;
-    private mixed $ip;
+    protected array $params;
+    protected mixed $method;
+    protected mixed $agent;
+    protected mixed $ip;
+    protected string|false $uri;
 
     public function __construct()
     {
@@ -15,6 +16,7 @@ class Request
         $this->method = $_SERVER['REQUEST_METHOD'];
         $this->agent = $_SERVER['HTTP_USER_AGENT'];
         $this->ip = $_SERVER['REMOTE_ADDR'];
+        $this->uri = strtok($_SERVER['REQUEST_URI'], '?');
     }
 
     /**
@@ -65,6 +67,14 @@ class Request
     public function input($key): mixed
     {
         return $this->params[$key] ?: null;
+    }
+
+    /**
+     * @return bool|string
+     */
+    public function uri(): bool|string
+    {
+        return $this->uri;
     }
 
     /**
