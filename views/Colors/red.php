@@ -11,3 +11,9 @@
 <h1>Content Here...</h1>
 </body>
 </html>
+
+<?php
+
+//$request = new \app\Core\Request();
+////var_dump($request->isset("name"));
+//$request->redirect('/colors/blue');
