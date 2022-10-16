@@ -24,7 +24,8 @@ class Router
             if (in_array($request->method(), $route['methods']) and $request->uri() == $route['uri']) {
                 return $route;
             }
-            return null;
+
         }
+        return null;
     }
 }

@@ -14,11 +14,17 @@ use app\Core\Routing\Route;
 
 //Route::get('\null');
 //Route::get('/null');
+//Route::get('all');'
+Route::post('/gn',function (){
+    echo "asff";
+});
+Route::get('/amir');
 Route::add(['post', 'get'], '/a', function () {
     echo "Welcome!";
 });
 
+Route::add('get', '/hs');
 
-Route::add(['post', 'get'], '/amirali', function () {
-    echo "Welcome";
-});
+
+//Route::get('/hasan');
+//Route::add('post', '/ali');

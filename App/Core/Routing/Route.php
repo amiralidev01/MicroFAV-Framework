@@ -1,14 +1,54 @@
 <?php namespace app\Core\Routing;
 
 
+use Exception;
+
 class Route
 {
+//    private static $routes = [];
+//
+//
+//    public static function add(array|string $method, string $uri, $action = null, array $middleware = []): void
+//    {
+//        $methods = is_array($method) ? $method : [$method];
+//        self::$routes[] = [
+//            'methods' => $methods,
+//            'uri' => $uri,
+//            'action' => $action,
+//            'middleware' => $middleware
+//        ];
+//    }
+//
+//    /**
+//     * @throws Exception
+//     */
+//    public static function __callStatic($name, $arguments)
+//    {
+//        $verbs = ['get', 'post', 'put', 'patch', 'delete', 'options'];
+//        if (!in_array($name, $verbs))
+//            throw new Exception('Request method not support!');
+//        $uri = $arguments[0];
+//        $action = $arguments[1] ?? null;
+//        $middleware = $arguments[2] ?? [];
+//        self::add($name, $uri, $action);
+//    }
+//
+//    public static function routes(): array
+//    {
+//        return self::$routes;
+//    }
+
     private static array $routes = [];
 
-    public static function add($methods, $uri, $action = null)
+    public static function add(array|string $method, string $uri, $action = null)
     {
-        $methods = is_array($methods) ? $methods : [$methods];
-        self::$routes[] = ['methods' => $methods, 'uri' => $uri, 'action' => $action];
+        $methods = is_array($method) ? $method : [$method];
+        self::$routes[] =
+            [
+                'methods' => $methods,
+                'uri' => $uri,
+                'action' => $action
+            ];
     }
 
     /**
@@ -18,7 +58,8 @@ class Route
      */
     public static function get($uri, $action = null): void
     {
-        self::$routes[] = ['get', 'uri' => $uri, 'action' => $action];
+//        self::$routes[] = ['get', 'uri' => $uri, 'action' => $action];
+        self::add('get', $uri, $action);
     }
 
     /**
@@ -28,7 +69,8 @@ class Route
      */
     public static function post($uri, $action = null): void
     {
-        self::$routes[] = ['post', 'uri' => $uri, 'action' => $action];
+//        self::$routes[] = ['post', 'uri' => $uri, 'action' => $action];
+        self::add('post', $uri, $action);
     }
 
     /**
