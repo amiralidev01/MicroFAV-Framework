@@ -2,29 +2,18 @@
 
 use app\Core\Routing\Route;
 
-//Route::add(['get'], '/null');
+Route::get('/archive', 'ArchiveController@index');
+Route::get('/', 'HomeController@index');
 
-//Route::add(['get', 'post'], '/', function () {
-//    echo "Welcome";
-//});
-//
-//Route::post('/saveForm', function () {
-//    echo "save ok";
-//});
 
-//Route::get('\null');
-//Route::get('/null');
-//Route::get('all');'
-Route::post('/gn',function (){
-    echo "asff";
-});
-Route::get('/amir');
-Route::add(['post', 'get'], '/a', function () {
+Route::add(['get', 'post', 'put'], '/', function () {
     echo "Welcome!";
 });
 
-Route::add('get', '/hs');
+Route::get('/saveForm', function () {
+    echo "save Ok.";
+});
 
+Route::put('/c', ['Controller', 'Method']);
 
-//Route::get('/hasan');
-//Route::add('post', '/ali');
+Route::get('/d', 'Controller@Method');

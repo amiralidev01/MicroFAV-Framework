@@ -80,7 +80,8 @@ class Route
      */
     public static function put($uri, $action = null): void
     {
-        self::$routes[] = ['put', 'uri' => $uri, 'action' => $action];
+//        self::$routes[] = ['put', 'uri' => $uri, 'action' => $action];
+        self::add('put', $uri);
     }
 
     /**
