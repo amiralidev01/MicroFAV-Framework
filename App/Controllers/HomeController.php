@@ -4,6 +4,6 @@ class HomeController
 {
     public function index()
     {
-        echo "Hi From HomeController!";
+        view('home.index');
     }
 }
