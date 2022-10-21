@@ -15,7 +15,7 @@ function siteUrl($route): string
  */
 function view($path, $data = []): void# errors.404
 {
-    extract($$data);
+    extract($data);
     $path = str_replace('.', '/', $path);
     $view_full_path = BASE_PATH . "views/$path.php";
     include_once $view_full_path;

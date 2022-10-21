@@ -9,6 +9,6 @@
 </head>
 <body>
 Welcome To TodoList Page
-<?php var_dump($tasks[]); ?>
+<?php var_dump($tasks); ?>
 </body>
 </html>
