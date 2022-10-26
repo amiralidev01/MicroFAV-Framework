@@ -40,14 +40,15 @@ class Route
 
     private static array $routes = [];
 
-    public static function add(array|string $method, string $uri, $action = null)
+    public static function add(array|string $method, string $uri, $action = null, $middleware = [])
     {
         $methods = is_array($method) ? $method : [$method];
         self::$routes[] =
             [
                 'methods' => $methods,
                 'uri' => $uri,
-                'action' => $action
+                'action' => $action,
+                'middleware' => $middleware
             ];
     }
 
@@ -56,10 +57,9 @@ class Route
      * @param $action
      * @return void
      */
-    public static function get($uri, $action = null): void
+    public static function get($uri, $action = null, $middleware = []): void
     {
-//        self::$routes[] = ['get', 'uri' => $uri, 'action' => $action];
-        self::add('get', $uri, $action);
+        self::add('get', $uri, $action, $middleware);
     }
 
     /**
@@ -67,10 +67,9 @@ class Route
      * @param $action
      * @return void
      */
-    public static function post($uri, $action = null): void
+    public static function post($uri, $action = null, $middleware = []): void
     {
-//        self::$routes[] = ['post', 'uri' => $uri, 'action' => $action];
-        self::add('post', $uri, $action);
+        self::add('post', $uri, $action, $middleware);
     }
 
     /**
@@ -78,10 +77,9 @@ class Route
      * @param $action
      * @return void
      */
-    public static function put($uri, $action = null): void
+    public static function put($uri, $action = null, $middleware = []): void
     {
-//        self::$routes[] = ['put', 'uri' => $uri, 'action' => $action];
-        self::add('put', $uri);
+        self::add('put', $uri, $action, $middleware);
     }
 
     /**
@@ -89,9 +87,9 @@ class Route
      * @param $action
      * @return void
      */
-    public static function patch($uri, $action = null): void
+    public static function patch($uri, $action = null, $middleware = []): void
     {
-        self::$routes[] = ['patch', 'uri' => $uri, 'action' => $action];
+        self::add('patch', $uri, $action, $middleware);
     }
 
     /**
@@ -99,9 +97,9 @@ class Route
      * @param $action
      * @return void
      */
-    public static function delete($uri, $action = null): void
+    public static function delete($uri, $action = null, $middleware = []): void
     {
-        self::$routes[] = ['delete', 'uri' => $uri, 'action' => $action];
+        self::add('delete', $uri, $action, $middleware);
     }
 
     /**
@@ -109,9 +107,9 @@ class Route
      * @param $action
      * @return void
      */
-    public static function option($uri, $action = null): void
+    public static function option($uri, $action = null, $middleware = []): void
     {
-        self::$routes[] = ['option', 'uri' => $uri, 'action' => $action];
+        self::add('option', $uri, $action, $middleware);
     }
 
     /**

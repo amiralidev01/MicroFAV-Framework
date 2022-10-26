@@ -15,9 +15,11 @@ Route::get('/saveForm', function () {
 });
 
 
-Route::get('/todo/list', 'todoController@list');
+Route::get('/todo/list', 'todoController@list', [\app\Middleware\BlockFirefox::class]);
 
 
 Route::put('/c', ['Controller', 'Method']);
 
 Route::get('/d', 'Controller@Method');
+
+var_dump(Route::routes());
