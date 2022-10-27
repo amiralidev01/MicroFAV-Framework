@@ -8,7 +8,12 @@ class BlockFirefox implements MiddlewareInterface
     {
         // TODO: Implement handle() method.
         global $request;
-
-        var_dump($request);
+//        die("BlockFirefox!");
+        if ($request->agent() !== null) {
+            $agent = $request->agent();
+            if (strlen(strstr($agent, 'Firefox')) > 0) {
+                die("You cannot use the Firefox browser!");
+            }
+        }
     }
 }

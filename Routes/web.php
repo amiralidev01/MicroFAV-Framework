@@ -22,4 +22,4 @@ Route::put('/c', ['Controller', 'Method']);
 
 Route::get('/d', 'Controller@Method');
 
-var_dump(Route::routes());
+//var_dump(Route::routes());
